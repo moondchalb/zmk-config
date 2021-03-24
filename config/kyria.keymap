@@ -11,34 +11,37 @@
 #define NUM 1
 #define NAV 2
 
+#define EUR RA(RS(N2))
+#define CM COMMA
+
 
 / {
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
-// -----------------------------------------------------------------------------------------------------------------------------
-// |  ESC    |  Q  |  W  |  E  |  R  |  T  |                                         |  Y  |  U  |  I      |  O    |  P     | BSPC |
-// |  TAB    |  A  |  S  |  D  |  F  |  G  |                                         |  H  |  J  |  K      |  L    |  ;     |  '   |
-// |  SHFT   |  Z  |  X  |  C  |  V  |  B  |    | CTRL  |             | \     |      |  N  |  M  |  ,      |  .    |  /     | SHFT |
+// ------------------------------------------------------------------------------------------------------------------------------
+// |  ESC    |  Q  |  W  |  E  |  R  |  T  |                                         |  Y  |  U  |  I   |  O    |  P     | BSPC |
+// |  TAB    |  A  |  S  |  D  |  F  |  G  |                                         |  H  |  J  |  K   |  L    |  ;     |  '   |
+// |  SHFT   |  Z  |  X  |  C  |  V  |  B  |    | CTRL  |             | \     |      |  N  |  M  |  ,   |  .    |  /     | SHFT |
 //                    | ALT  | CMD | NUM | BSPC | ENTER |             | SHIFT | SPACE | NAV  | NUM | ALT |
 			bindings = <
-	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                           &kp Y &kp U &kp I     &kp O   &kp P    &kp BSPC
-	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                           &kp H &kp J &kp K     &kp L   &kp SEMI &kp SQT
-	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B  &none    &kp LCTRL        &kp BSLH &none &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                           &kp Y &kp U &kp I  &kp O   &kp P    &kp BSPC
+	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                           &kp H &kp J &kp K  &kp L   &kp SEMI &kp SQT
+	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B  &none    &kp LCTRL        &kp BSLH &none &kp N &kp M &kp CM &kp DOT &kp FSLH &kp RSHFT
 	               &kp LALT &kp LCMD &mo NUM &kp BSPC &kp RET          &kp RSHFT &kp SPACE &mo NAV &mo NUM &kp RALT
 			>;
 		};
 
 		num_layer {
-// ---------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
 // |  ESC  |    !    |   @    |   {    |  }     |  ~    |                                       |   /     |  7   |  8   |  9   |    *    | BSPC |
 // |  TAB  |    #    |   $    |   (    |  )     |  --   |                                       |   =     |  4   |  5   |  6   |    -    |  _   |
 // |  SHFT |    ^    |   &    |   [    |  ]     |  `    || CTRL  |                | PIPE  |     |   %     |  1   |  2   |  3   |    +    | SHFT |
 //                           | ALT  | CMD  | NUM  | BSPC | ENTER |                | SHIFT | SPACE | NAV  | NUM | ALT |
 			bindings = <
 	&trans  &kp EXCL  &kp AT   &kp LBRC &kp RBRC &kp TILDE                                       &kp FSLH  &kp N7 &kp N8 &kp N9 &kp PLUS  &trans
-	&trans  &kp HASH  &kp DLLR &kp LPAR &kp RPAR &none                                           &kp EQUAL &kp N4 &kp N5 &kp N6 &kp MINUS &kp UNDER
+	&trans  &kp HASH  &kp DLLR &kp LPAR &kp RPAR &kp EUR                                         &kp EQUAL &kp N4 &kp N5 &kp N6 &kp MINUS &kp UNDER
 	&trans  &kp CARET &kp AMPS &kp LBKT &kp RBKT &kp GRAVE &trans &trans          &kp PIPE &none &kp PRCNT &kp N1 &kp N2 &kp N3 &kp FSLH  &trans
 	                          &trans &trans &trans         &trans &trans          &trans &trans &trans &kp N0 &kp DOT
 			>;
