@@ -14,6 +14,13 @@
 #define EUR RA(RS(N2))
 #define CM COMMA
 
+#define NTAB LG(LS(RBKT))  // next tab
+#define PTAB LG(LS(LBKT))  // previous tab
+#define NWIN LG(GRAVE)     // next window of app
+
+#define SPCL LG(LA(LEFT))  // Spectacle left
+#define SPCR LG(LA(RIGHT)) // Spectacle right
+#define SPCF LG(LA(F))     // Spectacle full screen
 
 / {
 	keymap {
@@ -35,29 +42,29 @@
 
 		num_layer {
 // ----------------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |    !    |   @    |   {    |  }     |  ~    |                                       |   /     |  7   |  8   |  9   |    *    | BSPC |
-// |  TAB  |    #    |   $    |   (    |  )     |  --   |                                       |   =     |  4   |  5   |  6   |    -    |  _   |
-// |  SHFT |    ^    |   &    |   [    |  ]     |  `    || CTRL  |                | PIPE  |     |   %     |  1   |  2   |  3   |    +    | SHFT |
+// |  ESC  |    !    |   @    |   {    |   }    |  ~   |                                        |   /     |  7   |  8   |  9   |    *    | BSPC |
+// |  TAB  |    #    |   $    |   (    |   )    |  €   |                                        |   =     |  4   |  5   |  6   |    -    |  _   |
+// |  SHFT |    ^    |   &    |   [    |   ]    |  `   | | CTRL  |                | PIPE  |     |   %     |  1   |  2   |  3   |    +    | SHFT |
 //                           | ALT  | CMD  | NUM  | BSPC | ENTER |                | SHIFT | SPACE | NAV  | NUM | ALT |
 			bindings = <
 	&trans  &kp EXCL  &kp AT   &kp LBRC &kp RBRC &kp TILDE                                       &kp FSLH  &kp N7 &kp N8 &kp N9 &kp PLUS  &trans
 	&trans  &kp HASH  &kp DLLR &kp LPAR &kp RPAR &kp EUR                                         &kp EQUAL &kp N4 &kp N5 &kp N6 &kp MINUS &kp UNDER
 	&trans  &kp CARET &kp AMPS &kp LBKT &kp RBKT &kp GRAVE &trans &trans          &kp PIPE &none &kp PRCNT &kp N1 &kp N2 &kp N3 &kp FSLH  &trans
-	                          &trans &trans &trans         &trans &trans          &trans &trans &trans &kp N0 &kp DOT
+	                                  &trans &trans &trans &trans &trans          &trans &trans &trans &kp N0 &kp DOT
 			>;
 		};
 
 		nav_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |     |     |     |     |     |                                     |  pgup   |  home  |   up   |  end | --- | BSPC |
-// |  TAB  |     |     |     |     |     |                                     | pgdown  |  left  |  down  | right| --- | ---- |
-// |  SHFT |     |     |     |     |     |   | CTRL  |               | ----  | |  -----  |  ----  |  ----  | ---- | --- | SHFT |
-//                 | ALT  | CMD | NUM | BSPC | ENTER |               | SHIFT | SPACE | NAV  | NUM | ALT |
+// |nextWin |    Vol+    | SpecL  |  SpecF    | SpecR |       |                                     |  pgup   |  home  |   up   |  end | --- | BSPC |
+// |  TAB   |    Vol-    | TabL   |  CMD+Tab  | TabR  | CMD+H |                                     | pgdown  |  left  |  down  | right| --- | ---- |
+// |  SHFT  |    Prev    | Play   |  Next     |       | CMD+M |   | CTRL  |               | ----  | |  -----  |  ----  |  ----  | ---- | --- | SHFT |
+//                                      | ALT  | CMD | NUM | BSPC | ENTER |               | SHIFT | SPACE | NAV  | NUM | ALT |
 			bindings = <
-	&trans  &none &none &none &none &none                                       &kp PG_UP &kp HOME &kp UP   &kp END   &none     &trans
-	&trans  &none &none &none &none &none                                       &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp MINUS &none
-	&trans  &none &none &none &none &none &trans &trans          &none  &none   &none     &none    &none    &none     &none     &trans
-	                 &trans &trans &trans &trans &trans          &trans &trans &trans &trans &trans
+	&kp NWIN &kp C_VOL_UP &kp SPCL &kp SPCF    &kp SPCR &none                                       &kp PG_UP &kp HOME &kp UP   &kp END   &none     &trans
+	&trans   &kp C_VOL_DN &kp PTAB &kp LG(TAB) &kp NTAB &kp LG(H)                                   &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp MINUS &none
+	&trans   &kp C_PREV   &kp C_PP &kp C_NEXT  &none    &kp LG(M) &trans &trans      &none  &none   &none     &none    &none    &none     &none     &trans
+	                                       &trans &trans &trans &trans &trans      &trans &trans &trans &trans &trans
 			>;
 		};
 	};
