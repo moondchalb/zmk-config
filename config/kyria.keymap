@@ -10,8 +10,8 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 #define DEFAULT 0
-#define NUM 1
-#define NAV 2
+#define FUN_NUM 1
+#define SYM_NAV 2
 
 #define EUR RA(RS(N2))
 #define CM COMMA
@@ -32,44 +32,44 @@
 		compatible = "zmk,keymap";
 
 		default_layer {
-// ------------------------------------------------------------------------------------------------------------------------------
-// |  ESC    |  Q  |  W  |  E  |  R  |  T  |                                         |  Y  |  U  |  I   |  O    |  P     | BSPC |
-// |  TAB    |  A  |  S  |  D  |  F  |  G  |                                         |  H  |  J  |  K   |  L    |  ;     |  '   |
-// |  SHFT   |  Z  |  X  |  C  |  V  |  B  |    | CTRL  |             |  PWR   |     |  N  |  M  |  ,   |  .    |  /     | SHFT |
-//                    | ALT  | CMD | NUM  | ENTER | NAV |             |  NUM   | BSPC | SPACE | NAV | ALT |
-			bindings = <
-	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                           &kp Y &kp U &kp I  &kp O   &kp P    &kp BSPC
-	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                           &kp H &kp J &kp K  &kp L   &kp SEMI &kp SQT
-	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B  &none   &kp LCTRL        &kp C_PWR &none &kp N &kp M &kp CM &kp DOT &kp FSLH &kp RSHFT
-	               &kp LALT &kp LCMD &mo NUM &kp RET &mo NAV          &mo NUM   &kp BSPC &kp SPACE &mo NAV &kp RALT
-			>;
-		};
-
-		num_layer {
-// ----------------------------------------------------------------------------------------------------------------------------------------------
-// |    `    |    !    |   @    |   {    |   }    |  ~   |                                               |   _     |  7   |  8   |  9   |    -    | BSPC |
-// |    |    |    #    |   $    |   (    |   )    |  €   |                                               |   =     |  4   |  5   |  6   |    +    |  ¨   |
-// |   SHFT  |    ^    |   &    |   [    |   ]    |  \   |       | CTRL  |                |   PWR  |     |   *     |  1   |  2   |  3   |    %    | SHFT |
-//                            |  ALT   |  CMD   |  NUM  | ENTER  | NAV   |                |   NUM  |  BSPC  |   0   |   .   | ALT |
-			bindings = <
-	&kp GRAVE &kp EXCL  &kp AT   &kp LBRC &kp RBRC &kp TILDE                                              &kp UNDER &kp N7 &kp N8 &kp N9 &kp MINUS &trans
-	&kp PIPE  &kp HASH  &kp DLLR &kp LPAR &kp RPAR &kp EUR                                                &kp EQUAL &kp N4 &kp N5 &kp N6 &kp PLUS  &kp LA(U)
-	&trans    &kp CARET &kp AMPS &kp LBKT &kp RBKT &kp BSLH &none &trans                   &trans   &none &kp STAR  &kp N1 &kp N2 &kp N3 &kp PRCNT &trans
-	                           &trans   &trans   &trans  &trans   &trans                   &trans   &trans   &kp N0   &kp DOT    &trans
-			>;
-		};
-
-		nav_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// | nextWin |    Mute    |  TabL    |        |  TabR    | CMD+T |                                             |  pgup   |  HOME  |   up   |  end   | --- | DEL  |
-// | prevWin |    Vol+    |  SpecL   | SpecF  |  SpecR   | CMD+H |                                             | pgdown  |  left  |  down  | right  | --- |extPwr|
-// | SHFT    |    Vol-    |  Prev    |  Play  |  Next    | CMD+M |   next-BT|                | clr-BT|         |  -----  |  ----  |  ----  | ------ | --- | SHFT |
-//                                         | ALT  | CMD | NUM | ENTER | NAV |                | SHIFT | BSPC | SPACE | NAV | ALT |
+// |  ESC    |  Q  |  W  |  E  |  R  |  T  |                                            |  Y  |  U  |  I   |  O    |  P     | BSPC |
+// |  TAB    |  A  |  S  |  D  |  F  |  G  |                                            |  H  |  J  |  K   |  L    |  ;     |  '   |
+// |  SHFT   |  Z  |  X  |  C  |  V  |  B  |         | CTRL  |          |   PWR   |     |  N  |  M  |  ,   |  .    |  /     | SHFT |
+//                    | ALT  | CMD | FUN_NUM | ENTER |SYM_NAV|          | FUN_NUM | BSPC | SPACE | SYM_NAV | ALT |
 			bindings = <
-	&kp NWIN  &kp K_MUTE   &kp PTAB   &none    &kp NTAB   &kp LG(T)                                            &kp PG_UP &kp HOME &kp UP   &kp END   &none     &kp DEL
-	&kp PWIN  &kp C_VOL_UP &kp SPCL   &kp SPCF &kp SPCR   &kp LG(H)                                            &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp MINUS &ext_power EP_TOG
-	&trans    &kp C_VOL_DN &kp C_PREV &kp C_PP &kp C_NEXT &kp LG(M) &trans &bt BT_NXT        &bt BT_CLR &none  &none     &none    &none    &none     &none     &trans
-	                                            &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans
+	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                              &kp Y &kp U &kp I  &kp O   &kp P    &kp BSPC
+	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                              &kp H &kp J &kp K  &kp L   &kp SEMI &kp SQT
+	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B  &none   &kp LCTRL           &kp C_PWR &none &kp N &kp M &kp CM &kp DOT &kp FSLH &kp RSHFT
+	               &kp LALT &kp LCMD &mo FUN_NUM &kp RET &mo SYM_NAV     &mo FUN_NUM &kp BSPC &kp SPACE &mo SYM_NAV &kp RALT
+			>;
+		};
+
+		fun_num_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// | nextWin |    Mute    |  TabL    |        |  TabR    | CMD+T |                                          |   _     |  7   |  8   |  9   |    -    | BSPC |
+// | prevWin |    Vol+    |  SpecL   | SpecF  |  SpecR   | CMD+H |                                          |   =     |  4   |  5   |  6   |    +    |  ¨   |
+// | SHFT    |    Vol-    |  Prev    |  Play  |  Next    | CMD+M |        |next-BT|           |  PWR  |     |   *     |  1   |  2   |  3   |    %    | SHFT |
+//                                         | ALT  | CMD | FUN_NUM | ENTER |SYM_NAV|           |  FUN_NUM  |  BSPC  |   0   |   .   | ALT |
+			bindings = <
+	&kp NWIN  &kp K_MUTE   &kp PTAB   &none    &kp NTAB   &kp LG(T)                                          &kp UNDER &kp N7 &kp N8 &kp N9 &kp MINUS &trans
+	&kp PWIN  &kp C_VOL_UP &kp SPCL   &kp SPCF &kp SPCR   &kp LG(H)                                          &kp EQUAL &kp N4 &kp N5 &kp N6 &kp PLUS  &kp LA(U)
+	&trans    &kp C_VOL_DN &kp C_PREV &kp C_PP &kp C_NEXT &kp LG(M) &trans &bt BT_NXT          &trans  &none &kp STAR  &kp N1 &kp N2 &kp N3 &kp PRCNT &trans
+	                                       &trans   &trans   &trans  &trans   &trans           &trans  &trans   &kp N0   &kp DOT  &trans
+			>;
+		};
+
+		sym_nav_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// |    `    |    !    |   @    |   {    |   }    |  ~   |                                               |  pgup   |  HOME  |   up   |   end   | --- | DEL  |
+// |    |    |    #    |   $    |   (    |   )    |  €   |                                               | pgdown  |  left  |  down  |  right  | --- |extPwr|
+// |   SHFT  |    ^    |   &    |   [    |   ]    |  \   |       | CTRL  |                | clr-BT|      |  -----  |  ----  |  ----  | ------- | --- | SHFT |
+//                            |  ALT   |  CMD   |FUN_NUM| ENTER  |SYM_NAV|                | SHIFT | BSPC | SPACE |SYM_NAV| ALT |
+			bindings = <
+	&kp GRAVE &kp EXCL  &kp AT   &kp LBRC &kp RBRC &kp TILDE                                              &kp PG_UP &kp HOME &kp UP   &kp END   &none &kp DEL
+	&kp PIPE  &kp HASH  &kp DLLR &kp LPAR &kp RPAR &kp EUR                                                &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &none &ext_power EP_TOG
+	&trans    &kp CARET &kp AMPS &kp LBKT &kp RBKT &kp BSLH &none &trans                   &bt BT_CLR &none  &none  &none    &none    &none     &none &trans
+	                           &trans   &trans   &trans  &trans   &trans                   &trans &trans &trans &trans &trans
 			>;
 		};
 	};
