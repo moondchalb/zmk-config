@@ -8,10 +8,12 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
 #define FUN_NUM 1
-#define SYM_NAV 2
+#define SYM_ARR 2
+#define PRF_FBT 3
 
 #define EUR RA(RS(N2))
 #define CM COMMA
@@ -36,41 +38,75 @@
 // |  ESC    |  Q  |  W  |  E  |  R  |  T  |                                            |  Y  |  U  |  I   |  O    |  P     | BSPC |
 // |  TAB    |  A  |  S  |  D  |  F  |  G  |                                            |  H  |  J  |  K   |  L    |  ;     |  '   |
 // |  SHFT   |  Z  |  X  |  C  |  V  |  B  |      | SPACE |             |   CMD   |     |  N  |  M  |  ,   |  .    |  /     | SHFT |
-//                   | CTRL | ALT  | CMD | FUN_NUM | BSPC |             | FUN_NUM | SYM_NAV | SPACE | RET | --- |
+//                   | CTRL | ALT  | CMD | FUN_NUM | BSPC |             | FUN_NUM | SYM_ARR | SPACE | RET | --- |
 			bindings = <
 	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                              &kp Y &kp U &kp I  &kp O   &kp P    &kp BSPC
 	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                              &kp H &kp J &kp K  &kp L   &kp SEMI &kp SQT
 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B    &none       &kp SPACE     &kp RCMD  &none &kp N &kp M &kp CM &kp DOT &kp FSLH &kp RSHFT
-	               &kp LCTRL &kp LALT &kp LCMD &mo FUN_NUM &kp BSPC      &mo FUN_NUM &mo SYM_NAV &kp SPACE &kp RET &none
+	               &kp LCTRL &kp LALT &kp LCMD &mo FUN_NUM &kp BSPC      &mo FUN_NUM &mo SYM_ARR &kp SPACE &kp RET &none
 			>;
 		};
 
+		// FUNCTION AND NUMPAD LAYER
 		fun_num_layer {
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // | nextWin |    Mute    |  TabL    | Enter  |  TabR    | CMD+T |                                          |   _     |  7   |  8   |  9   |    -    | BSPC |
 // | prevWin |    Vol+    |  SpecL   | SpecF  |  SpecR   | CMD+H |                                          |   =     |  4   |  5   |  6   |    +    |  ¨   |
-// | SHFT    |    Vol-    |  Prev    |  Play  |  Next    | CMD+M |     |next-BT|              |  CMD  |     |   *     |  1   |  2   |  3   |    %    | SHFT |
-//                                        | CTRL | ALT  | CMD | FUN_NUM | BSPC |              | FUN_NUM |  SYM_NAV  |   0   |   .   | --- |
+// | SHFT    |    Vol-    |  Prev    |  Play  |  Next    | CMD+M |      | PREF |              |  CMD  |     |   *     |  1   |  2   |  3   |    %    | SHFT |
+//                                        | CTRL | ALT  | CMD | FUN_NUM | BSPC |              | FUN_NUM |  SYM_ARR  |   0   |   .   | --- |
 			bindings = <
 	&kp NWIN  &kp K_MUTE   &kp PTAB   &kp RET  &kp NTAB   &kp LG(T)                                          &kp UNDER &kp N7 &kp N8 &kp N9 &kp MINUS &trans
 	&kp PWIN  &kp C_VOL_UP &kp SPCL   &kp SPCF &kp SPCR   &kp LG(H)                                          &kp EQUAL &kp N4 &kp N5 &kp N6 &kp PLUS  &kp LA(U)
-	&trans    &kp C_VOL_DN &kp C_PREV &kp C_PP &kp C_NEXT &kp LG(M) &trans &bt BT_NXT          &trans  &none &kp STAR  &kp N1 &kp N2 &kp N3 &kp PRCNT &trans
-	                                       &trans   &trans   &trans  &trans   &trans           &trans  &trans   &kp N0   &kp DOT  &trans
+	&trans    &kp C_VOL_DN &kp C_PREV &kp C_PP &kp C_NEXT &kp LG(M) &trans &mo PRF_FBT         &trans  &none &kp STAR  &kp N1 &kp N2 &kp N3 &kp PRCNT &trans
+	                                       &trans   &trans   &trans  &trans &trans             &trans  &trans   &kp N0   &kp DOT  &trans
 			>;
 		};
 
-		sym_nav_layer {
-// ----------------------------------------------------------------------------------------------------------------------------------------------
+		// SYMBOL AND ARROW LAYER
+		sym_arr_layer {
+// -------------------------------------------------------------------------------------------------------------------------------------------------------
 // |    `    |    !    |   @    |   {    |   }    |  ~   |                                            |  pgup   |  HOME  |   up   |   end   | --- | DEL  |
 // |    |    |    #    |   $    |   (    |   )    |  €   |                                            | pgdown  |  left  |  down  |  right  | --- |extPwr|
-// |   SHFT  |    ^    |   &    |   [    |   ]    |  \   |     | SPACE |               | clr-BT|      |  -----  |  ----  |  ----  | ------- | --- | SHFT |
-//                                | CTRL | ALT  | CMD | FUN_NUM | BSPC |               | FUN_NUM | SYM_NAV | SPACE | RET | --- |
+// |   SHFT  |    ^    |   &    |   [    |   ]    |  \   |     | SPACE |               |  CMD  |      |  -----  |  ----  |  ----  | ------- | --- | SHFT |
+//                                | CTRL | ALT  | CMD | FUN_NUM | BSPC |               | FUN_NUM | SYM_ARR | SPACE | RET | --- |
 			bindings = <
 	&kp GRAVE &kp EXCL  &kp AT   &kp LBRC &kp RBRC &kp TILDE                                           &kp PG_UP &kp HOME &kp UP   &kp END   &none &kp DEL
 	&kp PIPE  &kp HASH  &kp DLLR &kp LPAR &kp RPAR &kp EUR                                             &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &none &ext_power EP_TOG
-	&trans    &kp CARET &kp AMPS &kp LBKT &kp RBKT &kp BSLH &none &trans                &bt BT_CLR &none  &none  &none    &none    &none     &none &trans
-	                           &trans   &trans   &trans  &trans   &trans                &trans &trans &trans &trans &trans
+	&trans    &kp CARET &kp AMPS &kp LBKT &kp RBKT &kp BSLH &none &trans                 &trans &none  &none  &none    &none    &none     &none &trans
+	                           &trans   &trans   &trans  &trans   &trans                 &trans &trans &trans &trans &trans
 			>;
 		};
+
+		// PREFERENCES AND F-BUTTON LAYER
+		prf_fbt_layer {
+// --------------------------------------------------------------------------------------------------------------------------------------------------------
+// | BT clear | BT-Dev 0   | BT-Dev 1   | BT-Dev 2   | BT-Dev 3   | BT-Dev 4   |                                | ---- | ---- | ---- | ---- | ---- | ---- |
+// | Power ON       | ---- | Power OFF       | ----  |    ----    |    ----    |                                | ---- | ---- | ---- | ---- | ---- | ---- |
+// | Prefer USB |   ----   | Prefer BT       | ----  |    ----    |    ----    |     | ---- |      | ---- |     | ---- | ---- | ---- | ---- | ---- | ---- |
+//                                                       | ---- | ---- | ---- | ---- | ---- |      | ---- | ---- | ---- | ---- | ---- |
+			bindings = <
+	&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                                  &trans &trans &trans &trans &trans &trans
+	&ext_power EP_ON &trans &ext_power EP_OFF &trans  &trans       &trans                                        &trans &trans &trans &trans &trans &trans
+	&out OUT_USB &trans     &out OUT_BLE      &trans  &trans       &trans       &none &trans        &trans &none &trans &trans &trans &trans &trans &trans
+	                                                      &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
+			>;
+		};
+
+		// EMPTY LAYER (to be used as template for new layers)
+		// note that layers containing only &trans (like the unmodified empty layer) result in a compiler error if used
+// 		empty_layer {
+// // ---------------------- -----------------------------------------------------------------------------------------------
+// // | ---- | ---- | ---- | ---- | ---- | ---- |                                | ---- | ---- | ---- | ---- | ---- | ---- |
+// // | ---- | ---- | ---- | ---- | ---- | ---- |                                | ---- | ---- | ---- | ---- | ---- | ---- |
+// // | ---- | ---- | ---- | ---- | ---- | ---- |     | ---- |      | ---- |     | ---- | ---- | ---- | ---- | ---- | ---- |
+// //                     | ---- | ---- | ---- | ---- | ---- |      | ---- | ---- | ---- | ---- | ---- |
+// 			bindings = <
+// 	&trans &trans &trans &trans &trans &trans                                  &trans &trans &trans &trans &trans &trans
+// 	&trans &trans &trans &trans &trans &trans                                  &trans &trans &trans &trans &trans &trans
+// 	&trans &trans &trans &trans &trans &trans &none &trans        &trans &none &trans &trans &trans &trans &trans &trans
+// 	                    &trans &trans &trans &trans &trans        &trans &trans &trans &trans &trans
+// 			>;
+// 		};
+
 	};
 };
