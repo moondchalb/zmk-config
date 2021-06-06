@@ -33,9 +33,9 @@
 #define NWIN LG(GRAVE)     // next window of app
 #define PWIN LG(LS(GRAVE)) // previous window of app
 
-#define SPCL LG(LA(LEFT))  // Spectacle left
-#define SPCR LG(LA(RIGHT)) // Spectacle right
-#define SPCF LG(LA(F))     // Spectacle full screen
+#define SPECTACLE_L &kp LG(LA(LEFT))  // Spectacle left
+#define SPECTACLE_R &kp LG(LA(RIGHT)) // Spectacle right
+#define SPECTACLE_F &kp LG(LA(F))     // Spectacle full screen
 
 #define EXT_PWR_ON &ext_power EP_ON
 #define EXT_PWR_OFF &ext_power EP_OFF
@@ -95,7 +95,7 @@
 /* ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                              ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ */
      &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                 ___           &kp F7        &kp F8        &kp F9        &kp F12       ___
 /* ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
-     ___           ___           ___           ___           ___           ___                                                          ___           &kp F4        &kp F5        &kp F6        &kp F11       ___
+     ___           ___           SPECTACLE_L   SPECTACLE_F   SPECTACLE_R   ___                                                          ___           &kp F4        &kp F5        &kp F6        &kp F11       ___
 /* ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────┬───────────╮  ╭───────────┬─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
      ___           EXT_PWR_ON    EXT_PWR_OFF  &out OUT_USB   ___          &out OUT_BLE     ___        ___            ___        ___     ___           &kp F1        &kp F2        &kp F3        &kp F10       ___
 /* ╰─────────────┴─────────────┴─────────┬───┴─────────┬───┴─────────┬───┴─────────┬───┴─────────┼───────────┤  │           │         ╰───┬─────────┴───┬─────────┴───┬─────────┴───┬─────────┴─────────────┴─────────────╯ */
