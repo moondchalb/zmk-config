@@ -41,6 +41,10 @@
 #define EXT_PWR_OFF &ext_power EP_OFF
 
 
+&lt {
+    flavor = "hold-preferred";
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
