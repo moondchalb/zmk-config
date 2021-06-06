@@ -18,6 +18,12 @@
 #define XXX &none
 #define ___ &trans
 
+#define BS BSPC
+#define SPC SPACE
+#define CTRL LCTRL
+#define ALT LALT
+#define CMD LCMD
+
 #define EUR RA(RS(N2))
 #define CM COMMA
 
@@ -45,7 +51,7 @@
 /* ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────┬───────────╮  ╭───────────┬─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
      &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B         &kp RET   &kp BSPC          XXX        XXX     &kp N         &kp M         &kp CM        &kp DOT       &kp FSLH      &kp RSHFT
 /* ╰─────────────┴─────────────┴─────────┬───┴─────────┬───┴─────────┬───┴─────────┬───┴─────────┼───────────┤  │           │         ╰───┬─────────┴───┬─────────┴───┬─────────┴───┬─────────┴─────────────┴─────────────╯ */
-                                            &kp LCTRL     &kp LALT     &mo FUNM       &kp LCMD     &kp SPACE       &kp RET     &kp SPACE    &mo SYAR        &kp RET      &kp RALT
+                                            &kp CTRL     &mt ALT SPC   &lt FUNM BS   &mt CMD RET   &kp SPACE       &kp RET     &kp SPACE    &mo SYAR        &kp RET      &kp RALT
 /*                                       ╰─────────────┴─────────────┴─────────────┴─────────────┴───────────╯  ╰───────────┴─────────────┴─────────────┴─────────────┴─────────────╯                                       */
             >;
         };
