@@ -56,13 +56,13 @@
         default_layer {
             bindings = <
 /* ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                              ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ */
-     &kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T                                                        &kp Z         &kp U         &kp I         &kp O         &kp P         &kp BSPC
+     &tm CTRL ESC     &kp Q         &kp W         &kp E         &kp R         &kp T                                                        &kp Z         &kp U         &kp I         &kp O         &kp P         &kp BSPC
 /* ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                              ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
-     &mt CTRL ESC  &kp A         &kp S         &kp D         &kp F         &kp G                                                        &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
+     &kp TAB          &kp A         &kp S         &kp D         &kp F         &kp G                                                        &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp SQT
 /* ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────┬───────────╮  ╭───────────┬─────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ */
-     &kp LSHFT     &kp Y         &kp X         &kp C         &kp V         &kp B         &kp RET   &kp BSPC          XXX        XXX     &kp N         &kp M         &kp CM        &kp DOT       &kp FSLH      &kp RSHFT
+     &kp LSHFT     &kp Y         &kp X         &kp C         &kp V         &kp B         &kp RET   &kp LSHFT          XXX        XXX       &kp N         &kp M         &kp CM        &kp DOT       &kp FSLH      &kp RSHFT
 /* ╰─────────────┴─────────────┴─────────┬───┴─────────┬───┴─────────┬───┴─────────┬───┴─────────┼───────────┤  │           │         ╰───┬─────────┴───┬─────────┴───┬─────────┴───┬─────────┴─────────────┴─────────────╯ */
-                                            &kp CTRL     &mt ALT BS    &mt CMD SPC   &lt FUNM RET  &kp LSHFT      &kp BSPC     &kp SPACE     &mo SYAR       &kp RET      &kp RALT
+                                            &kp CTRL     &mt ALT BS    &lt FUNM RET   &mt CMD SPC  &kp BSPC       &kp LSHFT    &kp SPACE     &mo SYAR       &kp RET      &kp RALT
 /*                                       ╰─────────────┴─────────────┴─────────────┴─────────────┴───────────╯  ╰───────────┴─────────────┴─────────────┴─────────────┴─────────────╯                                       */
             >;
         };
